@@ -1,0 +1,88 @@
+body{
+    background:rgba(50,50,50,1)
+}
+.title{
+    position: absolute;
+    top:50%;
+    left:50%;
+    margin-left: -210px;
+    margin-top: -270px;
+    color:#fff;
+    font-size: 24px;
+    width: 400px;
+    text-align: center;
+}
+.container{
+    width: 400px;
+    height:380px;
+    position: absolute;
+    top:50%;
+    left:50%;
+    margin-left: -210px;
+    margin-top: -200px;
+    background: #fff;
+    border-radius: 15px;
+    box-shadow: 0 0 5px rgba(0,193,255,1);
+    padding:50px 0 0;
+    overflow: hidden;
+    box-sizing: border-box;
+}
+.cell{
+    margin:0 auto;
+    margin-top:20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.cell label{
+    display: inline-block;
+    width: 60px;
+    color: #999;
+}
+.cell input{
+    padding: 12px 20px;
+    border: 1px solid #aaa;
+    border-radius: 4px;
+    outline: 0;
+}
+.btns{
+    margin-top: 60px;
+    text-align: center;
+}
+.btns button{
+    padding: 12px 40px;
+    background: rgba(50,50,50,0.8);
+    border:0;
+    outline: 0;
+    color: white;
+    border-radius: 5px;
+}
+
+.btns button a:link{
+    color: white;
+}
+.btns button a:active{
+    color: white;
+}
+.btns button a:visited{
+    color: white;
+}
+.btns button:active{
+    background: rgba(50,50,50,.6);
+}
+.btns button.register{
+    width: 300px;
+}
+
+input:-internal-autofill-selected {
+    background-color: white !important;
+    background-image: none !important;
+    color: rgb(0, 0, 0) !important;
+    box-shadow: inset 0 0 0 1000px white !important;
+}
+input:-webkit-autofill {
+    box-shadow: 0 0 0px 1000px white inset !important;
+}
+input:-webkit-autofill:focus {
+    box-shadow: 0 0 0px 1000px white inset !important;
+}
