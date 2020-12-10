@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+<div id="name"></div>
+<div id="cors"></div>
+
+<script type="text/javascript">
+    function JSONP(url, callback){
+        window.jsonpCallback = callback;
+        let script = document.createElement('script');
+        script.setAttribute('src' , `${url}?callback=${callback}`);
+        document.body.appendChild(script);
+    }
+    JSONP('http://127.0.0.1:3000/jsonp','handleJsonp')
+
+    function ajax({type,url,callback}){
+        let xml = new XMLHttpRequest()
+        xml.open(type, url)
+        xml.send()
+        xml.onreadystatechange = ()=>{
+            if(xml.readyState === 4 && xml.status === 200){
+                let data = JSON.parse(xml.response)
+                callback(data)
+            }
+        }
+    }
+    ajax({
+        type: 'post',
+        url: 'http://127.0.0.1:3000/cors',
+        callback: function(res){
+            let cors = document.getElementById('cors')
+            cors.innerHTML = `${res.title}`
+        }
+    })
+</script>
+<script type="text/javascript">
+    function handleJsonp(data) {
+        let info = document.getElementById('name')
+        info.innerHTML = `姓名：${data.name} 年龄：${data.age}`
+    }
+</script>
+</body>
+</html>
